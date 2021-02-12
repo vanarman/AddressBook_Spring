@@ -10,6 +10,7 @@ public class BuddyInfo {
     private Long id;
     private String name;
     private String phoneNumber;
+    private String address;
 
     @ManyToOne(fetch = FetchType.LAZY)
     private AddressBook aBook;
@@ -17,6 +18,12 @@ public class BuddyInfo {
     public BuddyInfo(String name, String phoneNumber) {
         this.name = name;
         this.phoneNumber = phoneNumber;
+    }
+
+    public BuddyInfo(String name, String phoneNumber, String address) {
+        this.name = name;
+        this.phoneNumber = phoneNumber;
+        this.address = address;
     }
 
     public BuddyInfo() {
@@ -43,5 +50,13 @@ public class BuddyInfo {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 }

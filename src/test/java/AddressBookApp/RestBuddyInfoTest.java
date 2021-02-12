@@ -33,9 +33,13 @@ public class RestBuddyInfoTest {
         BuddyInfo b1 = new BuddyInfo("Name 1", "Phone # 1");
         BuddyInfo b2 = new BuddyInfo("Name 2", "Phone # 2");
         BuddyInfo b3 = new BuddyInfo("Name 3", "Phone # 3");
+        BuddyInfo b4 = new BuddyInfo("Name 4", "Phone # 4", "Address of 4");
+        BuddyInfo b5 = new BuddyInfo("Name 5", "Phone # 5", "Address of 5");
         buddyInfoRestCtrl.create(b1);
         buddyInfoRestCtrl.create(b2);
         buddyInfoRestCtrl.create(b3);
+        buddyInfoRestCtrl.create(b4);
+        buddyInfoRestCtrl.create(b5);
     }
 
     @Test
@@ -74,13 +78,22 @@ public class RestBuddyInfoTest {
             .andExpect(jsonPath("$.id").value("2"))
             .andExpect(jsonPath("$.name").value("Name 2"))
             .andExpect(jsonPath("$.phoneNumber").value("Phone # 2"));
+
+        mvc.perform(MockMvcRequestBuilders
+                .get("/api/buddyInfo/4")
+                .accept(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.id").value("4"))
+                .andExpect(jsonPath("$.name").value("Name 4"))
+                .andExpect(jsonPath("$.phoneNumber").value("Phone # 4"))
+                .andExpect(jsonPath("$.address").value("Address of 4"));
     }
 
     @Test
     public void updateBuddieInfoById() throws Exception {
         mvc.perform(MockMvcRequestBuilders
-            .put("/api/buddyInfo/3")
-            .content("{ \"id\": \"3\", \"name\": \"New Name 2\", \"phoneNumber\": \"New Phone # 2\" }")
+            .put("/api/buddyInfo/5")
+            .content("{ \"id\": \"5\", \"name\": \"New Name 5\", \"phoneNumber\": \"New Phone # 5\", \"address\": \"New address of 5\" }")
             .contentType(MediaType.APPLICATION_JSON)
             .accept(MediaType.APPLICATION_JSON))
             .andExpect(status().isOk());
