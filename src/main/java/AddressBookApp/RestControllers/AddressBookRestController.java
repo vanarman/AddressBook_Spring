@@ -22,12 +22,16 @@ public class AddressBookRestController {
         this.addressRepo = addressRepo;
     }
 
-    @GetMapping(path = "", produces = "application/json")
+    @GetMapping(path = "", consumes = "application/json", produces = "application/json")
+    @ResponseStatus(HttpStatus.OK)
+    @ResponseBody
     List<AddressBook> all() {
         return (List<AddressBook>) addressRepo.findAll();
     }
 
-    @GetMapping(value = "/{id}", produces = "application/json")
+    @GetMapping(value = "/{id}", consumes = "application/json", produces = "application/json")
+    @ResponseStatus(HttpStatus.OK)
+    @ResponseBody
     AddressBook getById(@PathVariable("id") Long id) {
         Optional<AddressBook> abOpt = addressRepo.findById(id);
         if(abOpt.isPresent()) {
@@ -36,14 +40,16 @@ public class AddressBookRestController {
         return null;
     }
 
-    @PostMapping(path = "", produces = "application/json")
+    @PostMapping(path = "", consumes = "application/json", produces = "application/json")
     @ResponseStatus(HttpStatus.CREATED)
+    @ResponseBody
     public Long create(@RequestBody AddressBook newAddressBook) {
         return addressRepo.save(newAddressBook).getId();
     }
 
-    @PostMapping(value = "/{id}/addBuddy", produces = "application/json")
+    @PostMapping(value = "/{id}/addBuddy", consumes = "application/json", produces = "application/json")
     @ResponseStatus(HttpStatus.OK)
+    @ResponseBody
     public void update(@PathVariable( "id" ) Long id, @RequestBody BuddyInfo resource) {
         Optional<AddressBook> addressBook = addressRepo.findById(id);
         if(addressBook.isPresent()) {
@@ -55,6 +61,7 @@ public class AddressBookRestController {
 
     @DeleteMapping(value = "/{id}")
     @ResponseStatus(HttpStatus.OK)
+    @ResponseBody
     public void delete(@PathVariable("id") Long id) {
         addressRepo.deleteById(id);
     }

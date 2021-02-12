@@ -21,11 +21,13 @@ public class BuddyInfoRestController {
     }
 
     @GetMapping(path = "", produces = "application/json")
+    @ResponseBody
     List<BuddyInfo> all() {
         return (List<BuddyInfo>) buddyRepo.findAll();
     }
 
     @GetMapping(value = "/{id}", produces = "application/json")
+    @ResponseBody
     BuddyInfo getById(@PathVariable("id") Long id) {
         Optional<BuddyInfo> biOpt = buddyRepo.findById(id);
         if(biOpt.isPresent()) {
@@ -34,13 +36,14 @@ public class BuddyInfoRestController {
         return null;
     }
 
-    @PostMapping(path = "", produces = "application/json")
+    @PostMapping(path = "", consumes = "application/json", produces = "application/json")
     @ResponseStatus(HttpStatus.CREATED)
+    @ResponseBody
     public Long create(@RequestBody BuddyInfo newBuddy) {
         return buddyRepo.save(newBuddy).getId();
     }
 
-    @PutMapping(value = "/{id}", produces = "application/json")
+    @PutMapping(value = "/{id}", consumes = "application/json", produces = "application/json")
     @ResponseStatus(HttpStatus.OK)
     public void update(@PathVariable( "id" ) Long id, @RequestBody BuddyInfo resource) {
         buddyRepo.save(resource);
