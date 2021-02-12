@@ -40,11 +40,14 @@ public class AddressBookRestController {
         return null;
     }
 
-    @PostMapping(path = "", consumes = "application/json", produces = "application/json")
+    @PostMapping(path = "", produces = "application/json")
     @ResponseStatus(HttpStatus.CREATED)
-    @ResponseBody
-    public Long create(@RequestBody AddressBook newAddressBook) {
-        return addressRepo.save(newAddressBook).getId();
+    public Long create(@RequestBody Object newAddressBook) {
+        if(newAddressBook instanceof AddressBook) {
+            return addressRepo.save((AddressBook) newAddressBook).getId();
+        } else {
+            return addressRepo.save(new AddressBook()).getId();
+        }
     }
 
     @PostMapping(value = "/{id}/addBuddy", consumes = "application/json", produces = "application/json")
