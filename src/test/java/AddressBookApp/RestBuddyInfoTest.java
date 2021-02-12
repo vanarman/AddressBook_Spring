@@ -21,7 +21,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @AutoConfigureMockMvc
 @WebAppConfiguration
 @SpringBootTest
-public class BuddyInfoTest {
+public class RestBuddyInfoTest {
     @Autowired
     private MockMvc mvc;
 

@@ -22,14 +22,14 @@ public class AddressBookRestController {
         this.addressRepo = addressRepo;
     }
 
-    @GetMapping(path = "", consumes = "application/json", produces = "application/json")
+    @GetMapping(path = "", produces = "application/json")
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
     List<AddressBook> all() {
         return (List<AddressBook>) addressRepo.findAll();
     }
 
-    @GetMapping(value = "/{id}", consumes = "application/json", produces = "application/json")
+    @GetMapping(value = "/{id}", produces = "application/json")
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
     AddressBook getById(@PathVariable("id") Long id) {
@@ -48,7 +48,7 @@ public class AddressBookRestController {
     }
 
     @PostMapping(value = "/{id}/addBuddy", consumes = "application/json", produces = "application/json")
-    @ResponseStatus(HttpStatus.OK)
+    @ResponseStatus(HttpStatus.CREATED)
     @ResponseBody
     public void update(@PathVariable( "id" ) Long id, @RequestBody BuddyInfo resource) {
         Optional<AddressBook> addressBook = addressRepo.findById(id);
