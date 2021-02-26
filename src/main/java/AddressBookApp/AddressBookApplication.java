@@ -24,7 +24,7 @@ public class AddressBookApplication {
             b1 = new BuddyInfo("Jack", "+1 (613) 456-12-54");
             b2 = new BuddyInfo("Chloe", "+1 (613) 674-23-82");
             b3 = new BuddyInfo("Kim", "+1 (613) 351-97-34");
-            b4 = new BuddyInfo("David", "+1 (613) 949-91-82");
+            b4 = new BuddyInfo("David", "+1 (613) 949-91-82", "Address of 4");
             b5 = new BuddyInfo("Michelle", "+1 (613) 210-02-81");
 
             // initialize an address book 1

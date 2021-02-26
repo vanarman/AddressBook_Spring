@@ -76,16 +76,16 @@ public class RestBuddyInfoTest {
             .accept(MediaType.APPLICATION_JSON))
             .andExpect(status().isOk())
             .andExpect(jsonPath("$.id").value("2"))
-            .andExpect(jsonPath("$.name").value("Name 2"))
-            .andExpect(jsonPath("$.phoneNumber").value("Phone # 2"));
+            .andExpect(jsonPath("$.name").value("Chloe"))
+            .andExpect(jsonPath("$.phoneNumber").value("+1 (613) 674-23-82"));
 
         mvc.perform(MockMvcRequestBuilders
                 .get("/api/buddyInfo/4")
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.id").value("4"))
-                .andExpect(jsonPath("$.name").value("Name 4"))
-                .andExpect(jsonPath("$.phoneNumber").value("Phone # 4"))
+                .andExpect(jsonPath("$.name").value("David"))
+                .andExpect(jsonPath("$.phoneNumber").value("+1 (613) 949-91-82"))
                 .andExpect(jsonPath("$.address").value("Address of 4"));
     }
 
