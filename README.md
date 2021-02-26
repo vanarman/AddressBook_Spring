@@ -10,19 +10,19 @@ This repository represents is part of the practice LAB to investigate and tried 
 
 * Get all AddressBooks
 
-    **Link**: { URL }/api/addressBook
+    **Link**: ```{ URL }/api/addressBook```
 
     **Request method**: GET
 
 * Get AddressBook by ID
 
-    **Link**: { URL }/api/addressBook/{address book id}
+    **Link**: ```{ URL }/api/addressBook/{address book id}```
 
     **Request method**: GET
 
 * Add AddressBook
 
-    **Link**: { URL }/api/addressBook
+    **Link**: ```{ URL }/api/addressBook```
 
     **Request method**: POST
     
@@ -33,7 +33,7 @@ This repository represents is part of the practice LAB to investigate and tried 
 
 * Add Buddy to AddressBook
 
-    **Link**: { URL }/api/addressBook/{address book id}/addBuddy
+    **Link**: ```{ URL }/api/addressBook/{address book id}/addBuddy```
 
     **Request method**: POST
 
@@ -53,7 +53,7 @@ This repository represents is part of the practice LAB to investigate and tried 
 
 * Remove AddressBook
 
-    **Link**: { URL }/api/addressBook/{address book id}
+    **Link**: ```{ URL }/api/addressBook/{address book id}```
 
     **Request method**: DELETE
 
@@ -61,19 +61,19 @@ This repository represents is part of the practice LAB to investigate and tried 
 
 * Get all Buddies
 
-    **Link**: { URL }/api/buddyInfo
+    **Link**: ```{ URL }/api/buddyInfo```
 
     **Request method**: GET
 
 * Get Buddy Information by ID
 
-    **Link**: { URL }/api/buddyInfo/{buddy id}
+    **Link**: ```{ URL }/api/buddyInfo/{buddy id}```
 
     **Request method**: GET
 
 * Add Buddy
 
-    **Link**: { URL }/api/buddyInfo
+    **Link**: ```{ URL }/api/buddyInfo```
 
     **Request method**: POST
     
@@ -93,7 +93,7 @@ This repository represents is part of the practice LAB to investigate and tried 
 
 * Update/Add Buddy
 
-    **Link**: { URL }/api/buddyInfo/{buddy id}
+    **Link**: ```{ URL }/api/buddyInfo/{buddy id}```
 
     **Request method**: PUT
 
@@ -113,6 +113,6 @@ This repository represents is part of the practice LAB to investigate and tried 
 
 * Remove Buddy
 
-    **Link**: { URL }/api/buddyInfo/{buddy id}
+    **Link**: ```{ URL }/api/buddyInfo/{buddy id}```
 
     **Request method**: DELETE
