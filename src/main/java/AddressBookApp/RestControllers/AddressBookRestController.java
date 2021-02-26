@@ -59,6 +59,10 @@ public class AddressBookRestController {
             AddressBook ab = addressBook.get();
             ab.addBuddy(resource);
             addressRepo.save(ab);
+        } else {
+            AddressBook ab = new AddressBook();
+            ab.setBuddies(resource);
+            addressRepo.save(ab);
         }
     }
 
